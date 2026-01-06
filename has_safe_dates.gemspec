@@ -22,30 +22,13 @@ Gem::Specification.new do |s|
   s.test_files            = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables           = `git ls-files -- bin/*`.split("\n").map { |f| File.basename(f) }
   s.summary               = "Chronic based date setting for ActiveRecord models"
+  s.licenses              = ["HQ"]
 
-  if s.respond_to? :specification_version
-    s.specification_version = 3
+  s.add_dependency "chronic",                                    "~> 0.10"
 
-    if Gem::Version.new(Gem::VERSION) >= Gem::Version.new("1.2.0")
-      s.add_development_dependency("activerecord", ["~> 6.0"])
-      s.add_development_dependency("bundler", ["~> 2.0"])
-      s.add_dependency("chronic")
-      s.add_development_dependency("database_cleaner")
-      s.add_development_dependency("rdoc", ">= 6.0")
-      s.add_development_dependency("rspec", "~> 3.13")
-      s.add_development_dependency("rspec_junit_formatter", ["~> 0.3", ">= 0.3.0"])
-    else
-      s.add_dependency("activerecord", [">= 3.1.0"])
-      s.add_dependency("bundler", ["~> 2.0"])
-      s.add_dependency("chronic")
-      s.add_dependency("rdoc", ">= 6.0")
-      s.add_dependency("rspec", [">= 0"])
-    end
-  else
-    s.add_dependency("activerecord", [">= 3.1.0"])
-    s.add_dependency("bundler", ["~> 2.0"])
-    s.add_dependency("chronic")
-    s.add_dependency("rdoc", ["~> 6.17"])
-    s.add_dependency("rspec", [">= 0"])
-  end
+  s.add_development_dependency "activerecord",                   "~> 7.2"
+  s.add_development_dependency "database_cleaner",               "~> 2.1"
+  s.add_development_dependency "rdoc",                           "~> 7.0"
+  s.add_development_dependency "rspec",                          "~> 3.13"
+  s.add_development_dependency "rspec_junit_formatter",          "~> 0.6", ">= 0.3.0"
 end
